@@ -117,7 +117,7 @@ def plot_capacity_factors(year_cf_tuples: List[Tuple[int, pd.Series]]):
 
     plt.title('Distribution of Capacity Factors by Year')
     plt.xlabel('Hours within Calendar Year')
-    plt.ylabel('Capacity Factor')
+    plt.ylabel('Fleet Capacity Factor')
     plt.legend(loc='upper right')
     
     # Reduce the number of x-axis labels
@@ -136,9 +136,6 @@ def __main__():
         capacity_factors.append((year, capacity_factor_by_year(year, year_series)))
     
     plot_capacity_factors(capacity_factors)
-    print(table)
-    table.to_csv('capacity_factors_table.csv')
-
 
 if __name__ == '__main__':
     __main__()
