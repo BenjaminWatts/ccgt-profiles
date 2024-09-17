@@ -7,5 +7,8 @@ Since 2016, as more renewables have come onto the grid, the CCGT fleet has becom
 
 At time of initial publishing, it should be noted that 2024 is not (as yet) complete.
 
+# Data attribution
+Data is sourced from [Elexon](https://bmrs.elexon.co.uk/). Warning, access to Elexon APIs is sometimes restricted for users outside the UK.
+
 # Requirements
 The packages required are loosely definied (without versions) in `requirements.txt`. 
