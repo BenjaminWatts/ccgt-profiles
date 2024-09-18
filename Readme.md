@@ -11,4 +11,8 @@ At time of initial publishing, it should be noted that 2024 is not (as yet) comp
 Data is sourced from [Elexon](https://bmrs.elexon.co.uk/). Warning, access to Elexon APIs is sometimes restricted for users outside the UK.
 
 # Requirements
-The packages required are loosely definied (without versions) in `requirements.txt`. 
+The packages required are loosely defined (without versions) in `requirements.txt`. 
+
+# Outputs 
+
+![Capacity Factors Distribution](capacity_factors_distribution_linkedin.png)
