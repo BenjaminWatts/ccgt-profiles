@@ -114,11 +114,17 @@ PERCENTILES = [x/100 for x in range(1, 100, 1)]
 def plot_capacity_factors(year_cf_tuples: List[Tuple[int, pd.Series]]):
     ''' Plot the distribution of capacity factors for each year '''
     plt.figure(figsize=(12, 8))
+    
+    df = pd.DataFrame()
 
     for year, cf in year_cf_tuples:
         stats = cf.describe(percentiles=PERCENTILES)
         percentiles_only = stats.loc[[f'{int(p*100)}%' for p in PERCENTILES]]
+        df[year] = percentiles_only
         plt.plot(percentiles_only.index, percentiles_only.values, label=str(year))
+        
+    # write the dataframe to an excel file
+    df.to_excel('data/capacity_factors.xlsx')
 
     plt.title('Distribution of Capacity Factors by Year')
     plt.xlabel('Hours within Calendar Year')
