@@ -11,7 +11,13 @@ DATA_FREQ_MINUTES = 5
 EXPECTED_RECORDS_PER_DAY = 24 * 60 / DATA_FREQ_MINUTES
 CURRENT_YEAR = datetime.now().year
 COMBINED_SERIES_FP = 'data/combined_series.json'
+EXCEL_FP = 'data/combined_excel.xlsx'
 
+# convert data to excel format
+
+def convert_to_excel(series: pd.Series):
+    ''' Convert the DataFrame to an Excel file '''
+    series.to_frame('ccgt_generation').to_excel(EXCEL_FP)
 
 # Helper function to read a json file into a pd.Series
 def read_series(filepath):
@@ -60,8 +66,7 @@ def open_all():
         print("All series opened and combined")
         return combined_series
     else:
-        print("No series to combine")
-        return pd.Series()
+        raise Exception("No series to combine")
 
 
 # Function to split the series into separate years
@@ -129,6 +134,8 @@ def plot_capacity_factors(year_cf_tuples: List[Tuple[int, pd.Series]]):
 
 def __main__():
     series = open_all()
+    convert_to_excel(series)
+    
     yearly_series = split_calendar_years(series)
     
     capacity_factors = []
