@@ -35,9 +35,7 @@ def open_all():
     print("Opening all series")
     series_list = []
     
-    # Limit the number of concurrent threads
-    max_workers = 8  # You can adjust this number based on your system
-    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=30) as executor:
         futures = []
         filenames = [f for f in os.listdir(HISTORY_FP) if f.endswith('.json')]
         total_files = len(filenames)

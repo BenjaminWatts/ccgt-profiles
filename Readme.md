@@ -1,4 +1,4 @@
-# CCGT Distribution profile by year
+# 1. CCGT Distribution profile by year - based on actual generation
 
 Since 2016, as more renewables have come onto the grid, the CCGT fleet has become increasingly flexible.
 
@@ -16,3 +16,12 @@ The packages required are loosely defined (without versions) in `requirements.tx
 # Outputs 
 
 ![Capacity Factors Distribution](capacity_factors_distribution_linkedin.png)
+
+
+# 2. Without Balancing Market Activity
+
+This is a second re-run of the analysis. Instead of taking actual aggregate generation, it instead takes the Physical Notification (or PN) values of gas plants and compares them with the MEL (maximum export limit) values that are provided to Elexon.
+
+![Stripping out Balancing Market Activity](bm_pn_capacity_factors_percentiles_truncated_linkedin.png)
+
+The code is located in `analyse_pn.py`.
