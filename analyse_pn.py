@@ -108,7 +108,7 @@ def plot_faceted_capacity_factors(year_cf_tuples: List[Tuple[int, pd.Series, pd.
             ax.annotate('Ukraine/French-nuke/hydro shock boost', xy=(0.5, 0.5), xycoords='axes fraction', fontsize=8,
                         bbox=dict(facecolor='white', alpha=0.7))
         elif year == 2024:
-            ax.annotate('Incomplete data', xy=(0.5, 0.3), xycoords='axes fraction', fontsize=8,
+            ax.annotate('Partial year', xy=(0.5, 0.3), xycoords='axes fraction', fontsize=8,
                         bbox=dict(facecolor='white', alpha=0.7))
     
     # Handle any remaining empty subplots in the grid if the number of years is odd
@@ -130,6 +130,8 @@ def plot_faceted_capacity_factors(year_cf_tuples: List[Tuple[int, pd.Series, pd.
     
     # Save the plot with LinkedIn aspect ratio
     plt.savefig("bm_pn_capacity_factors_percentiles_truncated_linkedin.png", dpi=300)
+    
+    plt.show()
 
 def open_all():
     actual = open_actual()
@@ -144,6 +146,8 @@ def open_all():
     
     # Plot faceted graphs for all years
     plot_faceted_capacity_factors(year_cf_tuples)
+    
+    
         
     
 if __name__ == '__main__':
